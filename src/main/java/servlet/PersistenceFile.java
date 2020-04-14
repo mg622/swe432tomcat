@@ -1,7 +1,4 @@
 package servlet;
-// Written by David Gonzalez, April 2020
-// Modified by Jeff Offutt
-// Built to deploy in github with Heroku
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,14 +16,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet(name = "FilePersistence", urlPatterns = {"/file"})
-public class persistenceFile extends HttpServlet{
+@WebServlet(name = "PersistenceFile", urlPatterns = {"/file"})
+public class PersistenceFile extends HttpServlet{
   static enum Data {AGE, NAME};
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
   static String Domain  = "";
-  static String Path    = "/src/main/java/servlet";
+  static String Path    = "/";
   static String Servlet = "file";
 
   // Button labels
