@@ -1,4 +1,7 @@
 package servlet;
+// Written by David Gonzalez, April 2020
+// Modified by Jeff Offutt
+// Built to deploy in github with Heroku
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,13 +19,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet(name = "PersistenceFile", urlPatterns = {"/file"})
-public class PersistenceFile extends HttpServlet{
-  static enum Data {AGE, NAME, MAJOR};
+@WebServlet(name = "FilePersistence", urlPatterns = {"/file"})
+public class persistenceFile extends HttpServlet{
+  static enum Data {AGE, NAME};
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
-  static String Domain  = "https://swe432-persistence-file.herokuapp.com/file";
+  static String Domain  = "";
   static String Path    = "/src/main/java/servlet";
   static String Servlet = "file";
 
@@ -43,23 +46,17 @@ public class PersistenceFile extends HttpServlet{
   {
      String name = request.getParameter(Data.NAME.name());
      String age = request.getParameter(Data.AGE.name());
-     String major = request.getParameter(Data.MAJOR.name());
 
      String error = "";
      if(name == null){
        error= "<li>Name is required</li>";
        name = "";
      }
-     if(major == null){
-       error+= "<li>Major is required.<li>";
-       major = "";
-     }
 
      if(age == null){
        error+= "<li>Age is required.<li>";
        age = "";
-     }
-     else{
+     }else{
           try{
             Integer ageInteger =new Integer(age);
             if(ageInteger<1){
@@ -90,7 +87,7 @@ public class PersistenceFile extends HttpServlet{
        PrintTail(out);
      }else{
        PrintHead(out);
-       PrintBody(out, name, age, major, error);
+       PrintBody(out, name, age, error);
        PrintTail(out);
      }
   }
@@ -105,7 +102,7 @@ public class PersistenceFile extends HttpServlet{
      response.setContentType("text/html");
      PrintWriter out = response.getWriter();
      PrintHead(out);
-     PrintBody(out, "", "", "", "");
+     PrintBody(out, "", "", "");
      PrintTail(out);
   }
 
@@ -152,20 +149,12 @@ public class PersistenceFile extends HttpServlet{
      out.println("   <td><input type=\"text\" name=\""+Data.NAME.name()
       +"\" value=\""+name+"\" size=30 required></td>");
      out.println("  </tr>");
-     
      out.println("  <tr>");
      out.println("   <td>Age:</td>");
      out.println("   <td><input type=\"text\"  name=\""+Data.AGE.name()
       +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
       +age+"\" size=3 required></td>");
      out.println("  </tr>");
-     
-     out.println("  <tr>");
-     out.println("   <td>Major:</td>");
-     out.println("   <td><input type=\"text\" name=\""+Data.MAJOR.name()
-      +"\" value=\""+major+"\" size=30 required></td>");
-     out.println("  </tr>");
-     
      out.println(" </table>");
      out.println(" <br>");
      out.println(" <br>");
@@ -192,7 +181,6 @@ public class PersistenceFile extends HttpServlet{
         out.println("  <tr>");
         out.println("   <th>Name</th>");
         out.println("   <th>Age</th>");
-        out.println("   <th>Major</th>");
         out.println("  </tr>");
         File file = new File(resourcePath);
         if(!file.exists()){
