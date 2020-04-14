@@ -18,7 +18,7 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "PersistenceFile", urlPatterns = {"/file"})
 public class PersistenceFile extends HttpServlet{
-  static enum Data {AGE, NAME};
+  static enum Data {AGE, NAME, MAJOR};
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
@@ -43,17 +43,23 @@ public class PersistenceFile extends HttpServlet{
   {
      String name = request.getParameter(Data.NAME.name());
      String age = request.getParameter(Data.AGE.name());
+     String major = request.getParameter(Data.MAJOR.name());
 
      String error = "";
      if(name == null){
        error= "<li>Name is required</li>";
        name = "";
      }
+     if(major == null){
+       error+= "<li>Major is required.<li>";
+       major = "";
+     }
 
      if(age == null){
        error+= "<li>Age is required.<li>";
        age = "";
-     }else{
+     }
+     else{
           try{
             Integer ageInteger =new Integer(age);
             if(ageInteger<1){
@@ -84,7 +90,7 @@ public class PersistenceFile extends HttpServlet{
        PrintTail(out);
      }else{
        PrintHead(out);
-       PrintBody(out, name, age, error);
+       PrintBody(out, name, age, major, error);
        PrintTail(out);
      }
   }
@@ -99,7 +105,7 @@ public class PersistenceFile extends HttpServlet{
      response.setContentType("text/html");
      PrintWriter out = response.getWriter();
      PrintHead(out);
-     PrintBody(out, "", "", "");
+     PrintBody(out, "", "", "", "");
      PrintTail(out);
   }
 
@@ -146,6 +152,7 @@ public class PersistenceFile extends HttpServlet{
      out.println("   <td><input type=\"text\" name=\""+Data.NAME.name()
       +"\" value=\""+name+"\" size=30 required></td>");
      out.println("  </tr>");
+     
      out.println("  <tr>");
      out.println("   <td>Age:</td>");
      out.println("   <td><input type=\"text\"  name=\""+Data.AGE.name()
