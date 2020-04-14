@@ -23,7 +23,7 @@ public class PersistenceFile extends HttpServlet{
   static final String VALUE_SEPARATOR = ";";
 
   static String Domain  = "";
-  static String Path    = "/";
+  static String Path    = "/src/main/java/sevlet";
   static String Servlet = "file";
 
   // Button labels
