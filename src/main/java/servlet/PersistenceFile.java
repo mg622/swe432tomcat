@@ -22,8 +22,8 @@ public class PersistenceFile extends HttpServlet{
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
-  static String Domain  = "";
-  static String Path    = "/";
+  static String Domain  = "https://swe432-persistence-file.herokuapp.com/file";
+  static String Path    = "/src/main/java/servlet";
   static String Servlet = "file";
 
   // Button labels
