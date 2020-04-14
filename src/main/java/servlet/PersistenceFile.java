@@ -22,8 +22,8 @@ public class PersistenceFile extends HttpServlet{
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
-  static String Domain  = "";
-  static String Path    = "/src/main/java/sevlet";
+  static String Domain  = "https://swe432-persistence-file.herokuapp.com/file";
+  static String Path    = "/src/main/java/servlet";
   static String Servlet = "file";
 
   // Button labels
@@ -152,6 +152,13 @@ public class PersistenceFile extends HttpServlet{
       +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
       +age+"\" size=3 required></td>");
      out.println("  </tr>");
+     
+     out.println("  <tr>");
+     out.println("   <td>Major:</td>");
+     out.println("   <td><input type=\"text\" name=\""+Data.MAJOR.name()
+      +"\" value=\""+major+"\" size=30 required></td>");
+     out.println("  </tr>");
+     
      out.println(" </table>");
      out.println(" <br>");
      out.println(" <br>");
@@ -178,6 +185,7 @@ public class PersistenceFile extends HttpServlet{
         out.println("  <tr>");
         out.println("   <th>Name</th>");
         out.println("   <th>Age</th>");
+        out.println("   <th>Major</th>");
         out.println("  </tr>");
         File file = new File(resourcePath);
         if(!file.exists()){
