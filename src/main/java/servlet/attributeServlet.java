@@ -3,20 +3,18 @@
 // Import Servlet Libraries
 import javax.servlet.*;
 import javax.servlet.http.*;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
 
 // Import Java Libraries
 import java.io.*;
 import java.util.Enumeration;
 
-@WebServlet(name = "attributeServle", urlPatterns = {"/attribute"})
-public class attributeServlet extends HttpServlet
+@WebServlet(
+    name = "sessionAttributes",
+    urlPatterns = {"/attribute"}
+)
+
+public class AttributeServlet extends HttpServlet
 {
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
@@ -58,13 +56,17 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println("Enter name and value of an attribute");
 
    // String url = response.encodeURL ("offutt/servlet/attributeServlet");
-   String url = response.encodeURL("attributeServlet");
+   String url = response.encodeURL("sessionAttributes");
    out.println("<form action=\"" + url + "\" method=\"GET\">");
    out.println(" Name: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name\">");
 
    out.println(" Value: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value\">");
+
+   // invalidate session link
+   out.print  ("<br><br><a href=\"" + url + "?action=invalidate\">");
+   out.println("Invalidate the session</a>");
 
    out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
    out.println(" <input type=\"submit\" name=\"update\" value=\"Update\">");
