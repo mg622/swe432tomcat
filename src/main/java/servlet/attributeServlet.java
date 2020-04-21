@@ -18,6 +18,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    // Get session object
    HttpSession session = request.getSession();
 
+   String action = request.getParameter("action");
    String name   = request.getParameter("attrib_name");
    String value  = request.getParameter("attrib_value");
    String remove = request.getParameter("attrib_remove");
