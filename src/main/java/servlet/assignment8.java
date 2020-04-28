@@ -190,7 +190,7 @@ public class assignment8 extends HttpServlet {
      		out.println(" action=\""+Domain+Path+Servlet+"\">");
      		out.println("");
      	
-     		if (location.equals("fuck") || location.equals("shit") || location.equals("ass") || location.equals("bitch")) {
+     		if (location.equals("fuck") ) {
      			location="****";
      		}
 		
@@ -201,8 +201,6 @@ public class assignment8 extends HttpServlet {
      		out.println("  </tr>");
      		out.println("  <tr>");
 		out.println(" </table>");
-
-		out.println("<br> <br> Please rate the following GMU buildings on a scale of 1 (worst) to 5 (best): <br> <br> ");
 		
 		out.println("<b>Rating for Noise Level:</b> (1-very loud, 5-silent)");
 		out.println("<br>");
