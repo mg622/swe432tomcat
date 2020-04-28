@@ -208,6 +208,7 @@ public class assignment8 extends HttpServlet {
 		out.println("</center>");
 		out.println("<br>");
 		
+		out.println("<center>");
 		out.println("<b>Rating for Noise Level:</b> (1-very loud, 5-silent)");
 		out.println("<br>");
 		out.println("  <input type=\"radio\" name=\""+Data.NOISE.name() +"\" id=\"one\" value=\"1\">");
@@ -258,6 +259,8 @@ public class assignment8 extends HttpServlet {
      		out.println("</body>");
 		out.println("<br>");
 		out.println("</form>");
+		
+		out.println("</center>");
 	} 
 
 	
