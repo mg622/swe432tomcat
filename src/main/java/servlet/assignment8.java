@@ -15,40 +15,27 @@ import javax.servlet.annotation.WebServlet;
 
 public class assignment8 extends HttpServlet {
 
-
 	private static final long serialVersionUID = 1L;
 	static String Domain = "";
 	static String Path = "/";
 	static String Servlet = "assignment8";
 	
-
 	static String OperationAdd = "Add";
 	static String OperationSub = "Subtract";
 	static String OperationMult = "Multiply";
 
-
 	static String Style = "https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
-	
 	
 	static enum Data {LOC, NOISE, CROWD, COMFORT};
   	static String RESOURCE_FILE = "entries.txt";
   	static final String VALUE_SEPARATOR = ";";
 
-	/**
-	 * ***************************************************** Overrides HttpServlet's
-	 * doPost(). Converts the values in the form, performs the operation indicated
-	 * by the submit button, and sends the results back to the client.
-	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String location=request.getParameter(Data.LOC.name());
-     	//String noise = request.getParameter(Data.YEAR.name());
 		String noise = request.getParameter(Data.NOISE.name());
 		String crowd = request.getParameter(Data.CROWD.name());
 		String comfort = request.getParameter(Data.COMFORT.name());
-		
-		//String ss = request.getParameter(Data.SS.name());
-		//String vse = request.getParameter(Data.VSE.name());
      
      String error="";
      if(location==null){
@@ -266,7 +253,7 @@ public class assignment8 extends HttpServlet {
 		out.println("  <label for=\"one\">1</label>"); 
 		out.println("  <input type=\"radio\" name=\""+Data.COMFORT.name() +"\" id=\"two\" value=\"2\" />");
 		out.println("  <label for=\"two\">2</label>");
-		out.println("  <input type=\"radio\" name=\""+Data.COMFORt.name() +"\" id=\"three\" value=\"3\" checked=\"true\" />");
+		out.println("  <input type=\"radio\" name=\""+Data.COMFORT.name() +"\" id=\"three\" value=\"3\" checked=\"true\" />");
 		out.println("  <label for=\"three\">3</label>");
 		out.println("  <input type=\"radio\" name=\""+Data.COMFORT.name() +"\" id=\"four\" value=\"4\" />");
 		out.println("  <label for=\"four\">4</label>");
