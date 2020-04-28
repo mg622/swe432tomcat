@@ -163,7 +163,9 @@ public class assignment8 extends HttpServlet {
 		   
         String lifeCycleURL = "/assignment8"; 
       	out.print  ("<br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
+	out.println("<center>");
       	out.println("Invalidate the session</a>");
+	out.println("</center>");
        	out.println("<br>");
 	} 
 
