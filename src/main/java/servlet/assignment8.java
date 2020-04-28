@@ -162,7 +162,7 @@ static String censor(String text, String word)
 		  result=censor(result, "bitch");
 		  result=censor(result, "Bitch");
 		  
-		  out.println("   <td>"+value+"</td>");
+		  out.println("   <td>"+result+"</td>");
           }
           out.println("  </tr>");
         }
