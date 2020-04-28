@@ -75,37 +75,25 @@ public class assignment8 extends HttpServlet {
      }
 		
 	}
-	
-	
 
 	
 static String censor(String text, String word)  
 { 
     String[] word_list = text.split("\\s+"); 
   
-    // A new string to store the result 
     String result = ""; 
   
-    // Creating the censor which is an asterisks 
-    // "*" text of the length of censor word 
     String stars = ""; 
     for (int i = 0; i < word.length(); i++) 
         stars += '*'; 
-  
-    // Iterating through our list 
-    // of extracted words 
+   
     int index = 0; 
     for (String i : word_list)  
     { 
-        if (i.compareTo(word) == 0) 
-  
-            // changing the censored word to 
-            // created asterisks censor 
+        if (i.compareTo(word) == 0)  
             word_list[index] = stars; 
         index++; 
     } 
-  
-    // join the words 
     for (String i : word_list) 
         result += i + ' '; 
   
@@ -144,15 +132,8 @@ static String censor(String text, String word)
         while ((line = bufferedReader.readLine()) != null) {
           String []  entry= line.split(VALUE_SEPARATOR);
           out.println("  <tr>");
-          for(String value: entry){ //filter out curse words
-		/*if (value.equals("fuck") || value.equals("Fuck") || value.equals("shit") || value.equals("Shit")
-		   || value.equals("ass") || value.equals("Ass") || value.equals("bitch") || value.equals("Bitch")) 
-		{
-			out.println("   <td>"+"****"+"</td>");
-		}
-		else {
-              		out.println("   <td>"+value+"</td>");
-		}*/
+          for(String value: entry){ 
+		//filter out curse words
 		String result=censor(value, "fuck");
 		result=censor(result, "Fuck");
 		result=censor(result, "Shit");
