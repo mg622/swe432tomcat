@@ -124,10 +124,7 @@ public class assignment8 extends HttpServlet {
      out.println("</body>");
   }
 
-	/**
-	 * ***************************************************** Overrides HttpServlet's
-	 * doGet(). Prints an HTML page with a blank form.
-	 */
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -136,10 +133,10 @@ public class assignment8 extends HttpServlet {
 		PrintTail(out);
 						
 		HttpSession session = request.getSession();
-   		String name   = request.getParameter("attrib_name");
-   		String value  = request.getParameter("attrib_value");
-   		String remove = request.getParameter("attrib_remove");
-      	String action = request.getParameter("action");
+   		String name=request.getParameter("attrib_name");
+   		String value=request.getParameter("attrib_value");
+   		String remove=request.getParameter("attrib_remove");
+      	String action=request.getParameter("action");
 
    		if (action != null && action.equals("invalidate"))
    		{  
@@ -167,56 +164,48 @@ public class assignment8 extends HttpServlet {
 	private void PrintBody (PrintWriter out, String location, String noise, String crowd, String comfort, String error){
 	    
 		out.println("<body onLoad=\"setFocus()\">");
-     	out.println("<p>");
-     // out.println("<b>Name:</b> Megan Ngo");
+     		out.println("<p>");
    		out.println("<b>Assignment 8 </b>");
 		out.println("<p>");
 		out.println("<b>Mei Gibbons</b>");
 		out.println("</p>");		
 		out.println("<p>");
-   		out.println("<b>Additional Features Implemented:</b>");
-    		 out.println("<p>   (1 point) - Store the data in XML format. </p>");
-    		 out.println("<p>   (2 points) - Store the data into a database. ");
-    		 out.println("<p>   (1 point) - Filter unacceptable words from the reviews. </p>");
-    		 out.println("<p>   (1 point) - Add use of a session object (invalidate) </p>");
+   		out.println("<b>Additional features:</b>");
+    		out.println("<p>   Store the data in XML format. </p>");
+    		out.println("<p>   Store the data into a database. ");
+    		out.println("<p>   Filter unacceptable words from the reviews. </p>");
+    		out.println("<p>   Add use of a session object (invalidate) </p>");
 		out.println("</p>");
 		out.println("<br>");
 		out.println("<p><b>Best Place to Study</b> </p>");
 		out.println("<p>Fill out the form to rate study areas on campus!</p>");
-     	out.println("</p>");
+     		out.println("</p>");
 
-     	if(error != null && error.length() > 0){
+     		if(error != null && error.length() > 0){
 			out.println("<p style=\"color:red;\">Please correct the following and resubmit.</p>");
-       		out.println(error);
-     	}
+       			out.println(error);
+     		}
 		
 		out.print  ("<form name=\"persist2file\" method=\"post\"");
-     	out.println(" action=\""+Domain+Path+Servlet+"\">");
-     	out.println("");
+     		out.println(" action=\""+Domain+Path+Servlet+"\">");
+     		out.println("");
+     	
+     		if (location.equals("fuck") || location.equals("shit") || location.equals("ass") || location.equals("bitch")) {
+     			location="****";
+     		}
 		
 		out.println(" <table>");
-     	out.println("  <tr>");
-     	out.println("   <td>Location:</td>");
-     	out.println("   <td><input type=\"text\" name=\""+Data.LOC.name()+"\" value=\""+location+"\" size=30 required></td>");
-     	out.println("  </tr>");
-     	out.println("  <tr>");
+     		out.println("  <tr>");
+     		out.println("   <td>Location:</td>");
+     		out.println("   <td><input type=\"text\" name=\""+Data.LOC.name()+"\" value=\""+location+"\" size=30 required></td>");
+     		out.println("  </tr>");
+     		out.println("  <tr>");
 		out.println(" </table>");
-		out.println("<br> ");
-		   
-		/*out.println("What year are you?");         
-		out.println("  <select name=\""+Data.YEAR.name() +"\" value=\""+year+"\">");//size=30 required>");
-			    // name= \"School Year\">"); 
-		out.println("  <option value= \"Freshman\" selected=\"selected\">Freshman</option>"); 
-		out.println("  <option value=\"Sophomore\">Sophomore</option>"); 
-		out.println("  <option value=\"Junior\">Junior</option>"); 
-		out.println(" <option value=\"Senior\">Senior</option>"); 
-		out.println("</select>"); */
 
 		out.println("<br> <br> Please rate the following GMU buildings on a scale of 1 (worst) to 5 (best): <br> <br> ");
 		
 		out.println("<b>Rating for Noise Level:</b> (1-very loud, 5-silent)");
 		out.println("<br>");
-		// out.println("  <input type=\"radio\" name=\"JC\" id=\"one\" value=\"1\" />"); 
 		out.println("  <input type=\"radio\" name=\""+Data.NOISE.name() +"\" id=\"one\" value=\"1\">");
 		out.println("  <label for=\"one\">1</label>"); 
 		out.println("  <input type=\"radio\"name=\""+Data.NOISE.name() +"\" id=\"two\" value=\"2\" />");
@@ -233,7 +222,6 @@ public class assignment8 extends HttpServlet {
 		out.println("<b>Rating for Crowdedness:</b> (1-way too crowded, 5-hardly any people)");    
 		out.println("<br>");
 		out.println("  <input type=\"radio\" name=\""+Data.CROWD.name() +"\" id=\"one\" value=\"1\">");
-		// out.println("  <input type=\"radio\" name=\"Fenwick\" id=\"one\" value=\"1\" /> ");
 		out.println("  <label for=\"one\">1</label> ");
 		out.println("  <input type=\"radio\" name=\""+Data.CROWD.name() +"\" id=\"two\" value=\"2\" /> ");
 		out.println(" <label for=\"two\">2</label> ");
@@ -248,7 +236,6 @@ public class assignment8 extends HttpServlet {
 		out.println("<br>");
 		out.println("<b>Rating for Comfort of Seats:</b> (1-uncomfortable, 5-very comfortable)");
 		out.println("<br>");
-		// out.println("  <input type=\"radio\" name=\"RB\" id=\"one\" value=\"1\" /> ");
 		out.println("  <input type=\"radio\" name=\""+Data.COMFORT.name() +"\" id=\"one\" value=\"1\">");
 		out.println("  <label for=\"one\">1</label>"); 
 		out.println("  <input type=\"radio\" name=\""+Data.COMFORT.name() +"\" id=\"two\" value=\"2\" />");
@@ -261,33 +248,27 @@ public class assignment8 extends HttpServlet {
 		out.println("  <label for=\"five\">5</label>");
 		out.println("<p></p>");
 		
-
 		out.println("<input type=\"submit\" onclick=\"doPost()\" value=\"Submit\">");
 
-     	out.println("");
-     	out.println("</body>");
-		out.println("<br>");
-		out.println("<br>");
+     		out.println("");
+     		out.println("</body>");
 		out.println("<br>");
 		out.println("</form>");
 	} 
 
 	
 	private void PrintHead(PrintWriter out) {
-		
 		out.println("<html>");
-		
-     	out.println("");
-     	out.println("<head>");
-     	out.println("<title>Assignment 8</title>");
-     	// Put the focus in the name field
-     	out.println ("<script>");
-     	out.println ("  function setFocus(){");
-     	out.println ("    document.persist2file.NAME.focus();");
-     	out.println ("  }");
-     	out.println ("</script>");
-     	out.println("</head>");
-     	out.println("");
+     		out.println("");
+     		out.println("<head>");
+     		out.println("<title>Assignment 8</title>");
+     		out.println ("<script>");
+     		out.println ("  function setFocus(){");
+     		out.println ("    document.persist2file.NAME.focus();");
+     		out.println ("  }");
+     		out.println ("</script>");
+     		out.println("</head>");
+     		out.println("");
 	} 
 	
 	
@@ -300,5 +281,4 @@ public class assignment8 extends HttpServlet {
 		out.println("");
 		out.println("</html>");
 	} 
-
 } 
