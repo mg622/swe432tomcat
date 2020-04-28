@@ -80,7 +80,7 @@ public class assignment8 extends HttpServlet {
   private void PrintResponseBody (PrintWriter out, String resourcePath){
     out.println("<body onLoad=\"setFocus()\">");
     out.println("<p>");
-    out.println("Results Database");
+    out.println("Database");
     out.println("</p>");
     out.println("");
 	  
@@ -197,6 +197,7 @@ public class assignment8 extends HttpServlet {
      		out.println(" action=\""+Domain+Path+Servlet+"\">");
      		out.println("");
 		
+		out.println("<center>");
 		out.println(" <table>");
      		out.println("  <tr>");
      		out.println("   <td>Location:</td>");
@@ -204,6 +205,7 @@ public class assignment8 extends HttpServlet {
      		out.println("  </tr>");
      		out.println("  <tr>");
 		out.println(" </table>");
+		out.println("</center>");
 		out.println("<br>");
 		
 		out.println("<b>Rating for Noise Level:</b> (1-very loud, 5-silent)");
