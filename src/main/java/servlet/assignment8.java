@@ -142,6 +142,8 @@ static String censor(String text, String word)
 		  result=censor(result, "Ass");
 		  result=censor(result, "bitch");
 		  result=censor(result, "Bitch");
+		  result=censor(result, "hell");
+		  result=censor(result, "Hell");
 		  
 		  out.println("   <td>"+result+"</td>");
           }
