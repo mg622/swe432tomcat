@@ -85,22 +85,22 @@ public class assignment8 extends HttpServlet {
     out.println("");
 	  
 	out.println(" <style> able, th, td { border: 1px solid black; } </style> ");
-    out.println(" <table>");
+    	out.println(" <table>");
 	
 	try {
 		out.println("  <table>");
-        out.println("  <tr>");
-        out.println("   <th>Location</th>");
-        out.println("   <th>Noise</th>");
+        	out.println("  <tr>");
+        	out.println("   <th>Location</th>");
+        	out.println("   <th>Noise</th>");
 		out.println("   <th>Crowd</th>");
 		out.println("   <th>Comfort</th>");
-        out.println("  </tr>");
-        File file = new File(resourcePath);
-        if(!file.exists()){
-          out.println("  <tr>");
-          out.println("   <td>No entries persisted yet.</td>");
-          out.println("  </tr>");
-          return;
+        	out.println("  </tr>");
+        	File file = new File(resourcePath);
+        	if(!file.exists()){
+         		 out.println("  <tr>");
+          		out.println("   <td>No entries persisted yet.</td>");
+          		out.println("  </tr>");
+          		return;
         }
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -109,7 +109,12 @@ public class assignment8 extends HttpServlet {
           String []  entry= line.split(VALUE_SEPARATOR);
           out.println("  <tr>");
           for(String value: entry){
-              out.println("   <td>"+value+"</td>");
+		if (value.equals("fuck")) {
+			out.println("   <td>"+"****"+"</td>");
+		}
+		else {
+              		out.println("   <td>"+value+"</td>");
+		}
           }
           out.println("  </tr>");
         }
@@ -189,10 +194,6 @@ public class assignment8 extends HttpServlet {
 		out.print  ("<form name=\"persist2file\" method=\"post\"");
      		out.println(" action=\""+Domain+Path+Servlet+"\">");
      		out.println("");
-     	
-     		if (location.equals("fuck") ) {
-     			location="****";
-     		}
 		
 		out.println(" <table>");
      		out.println("  <tr>");
@@ -201,6 +202,7 @@ public class assignment8 extends HttpServlet {
      		out.println("  </tr>");
      		out.println("  <tr>");
 		out.println(" </table>");
+		out.println("<br>");
 		
 		out.println("<b>Rating for Noise Level:</b> (1-very loud, 5-silent)");
 		out.println("<br>");
