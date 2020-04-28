@@ -209,7 +209,7 @@ static String censor(String text, String word)
    		out.println("<b>Additional features:</b>");
     		out.println("<p>Store the data in XML format. </p>");
     		out.println("<p>Store the data into a database. ");
-    		out.println("<p>Filter unacceptable words from the reviews. </p>");
+    		out.println("<p>Filter unacceptable words from the reviews (curse words). </p>");
     		out.println("<p>Add use of a session object</p>");
 		out.println("</p>");
 		out.println("<br>");
