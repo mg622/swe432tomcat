@@ -76,6 +76,42 @@ public class assignment8 extends HttpServlet {
 		
 	}
 	
+	
+
+	
+static String censor(String text, String word)  
+{ 
+    String[] word_list = text.split("\\s+"); 
+  
+    // A new string to store the result 
+    String result = ""; 
+  
+    // Creating the censor which is an asterisks 
+    // "*" text of the length of censor word 
+    String stars = ""; 
+    for (int i = 0; i < word.length(); i++) 
+        stars += '*'; 
+  
+    // Iterating through our list 
+    // of extracted words 
+    int index = 0; 
+    for (String i : word_list)  
+    { 
+        if (i.compareTo(word) == 0) 
+  
+            // changing the censored word to 
+            // created asterisks censor 
+            word_list[index] = stars; 
+        index++; 
+    } 
+  
+    // join the words 
+    for (String i : word_list) 
+        result += i + ' '; 
+  
+    return result; 
+} 
+	
 
   private void PrintResponseBody (PrintWriter out, String resourcePath){
     out.println("<body onLoad=\"setFocus()\">");
@@ -109,14 +145,24 @@ public class assignment8 extends HttpServlet {
           String []  entry= line.split(VALUE_SEPARATOR);
           out.println("  <tr>");
           for(String value: entry){ //filter out curse words
-		if (value.equals("fuck") || value.equals("Fuck") || value.equals("shit") || value.equals("Shit")
+		/*if (value.equals("fuck") || value.equals("Fuck") || value.equals("shit") || value.equals("Shit")
 		   || value.equals("ass") || value.equals("Ass") || value.equals("bitch") || value.equals("Bitch")) 
 		{
 			out.println("   <td>"+"****"+"</td>");
 		}
 		else {
               		out.println("   <td>"+value+"</td>");
-		}
+		}*/
+		String result=censor(value, "fuck");
+		result=censor(result, "Fuck");
+		result=censor(result, "Shit");
+		result=censor(result, "shit");
+		  result=censor(result, "ass");
+		  result=censor(result, "Ass");
+		  result=censor(result, "bitch");
+		  result=censor(result, "Bitch");
+		  
+		  out.println("   <td>"+value+"</td>");
           }
           out.println("  </tr>");
         }
