@@ -108,8 +108,10 @@ public class assignment8 extends HttpServlet {
         while ((line = bufferedReader.readLine()) != null) {
           String []  entry= line.split(VALUE_SEPARATOR);
           out.println("  <tr>");
-          for(String value: entry){
-		if (value.equals("fuck")) {
+          for(String value: entry){ //filter out curse words
+		if (value.equals("fuck") || value.equals("Fuck") || value.equals("shit") || value.equals("Shit")
+		   || value.equals("ass") || value.equals("Ass") || value.equals("bitch") || value.equals("Bitch")) 
+		{
 			out.println("   <td>"+"****"+"</td>");
 		}
 		else {
