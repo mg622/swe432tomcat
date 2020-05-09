@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "result", urlPatterns = {"/result"})
-public class echo extends HttpServlet{
+public class result extends HttpServlet{
   @Override
    protected void doPost  (HttpServletRequest req, HttpServletResponse res)
           throws ServletException, IOException{
