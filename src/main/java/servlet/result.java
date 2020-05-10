@@ -21,20 +21,7 @@ public class result extends HttpServlet{
   @Override
    protected void doPost  (HttpServletRequest req, HttpServletResponse res)
           throws ServletException, IOException{
-     
-     res.setContentType("text/html");
-      PrintWriter out = res.getWriter();
 
-      out.println("<html>"); 
-      out.println("<title>HTML Assignment 6</title>");
-      out.println("<header>");
-      out.println("<h1 style='text-align:center;''>Results</h1>");
-      out.println("<p style='text-align: center;'> <b>1st picture rating:</b> " + req.getParameter("loc") + "</p>");
-      out.println("<p style='text-align: center;'> <b>2nd picture rating:</b> " + req.getParameter("noiseLevel") + "</p>");
-      out.println("<p style='text-align: center;'> <b>3rd picture rating:</b> " + req.getParameter("crowd") + "</p>");
-      out.println("<p style='text-align: center;'> <b>4th picture rating:</b> " + req.getParameter("comfort") + "</p>");
-      out.println("</header>");
-      out.println("</html>");
      
      
 
@@ -43,7 +30,7 @@ public class result extends HttpServlet{
      res.setHeader("Access-Control-Allow-Methods", "POST");
      res.setHeader("Access-Control-Allow-Headers", "*");
 
-     //PrintWriter out = res.getWriter();
+     PrintWriter out = res.getWriter();
 
      Map<String, String> data = new HashMap<String, String>();
 
@@ -54,7 +41,7 @@ public class result extends HttpServlet{
             String parameter = parameterMap.get(key)[0].toLowerCase();
             if(parameter.equals("null")){parameter = "Please input a location.";}
             else if(parameter.contains("fuck") || parameter.contains("shit") || parameter.contains("bitch") || parameter.contains("ass")){
-               parameter = "No curse words, please.";
+               parameter = "****";
             }
             data.put(key, parameter);
          }
