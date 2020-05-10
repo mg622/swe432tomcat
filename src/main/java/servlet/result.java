@@ -21,13 +21,29 @@ public class result extends HttpServlet{
   @Override
    protected void doPost  (HttpServletRequest req, HttpServletResponse res)
           throws ServletException, IOException{
+     
+     response.setContentType("text/html");
+      PrintWriter out = res.getWriter();
+
+      out.println("<html>"); 
+      out.println("<title>HTML Assignment 6</title>");
+      out.println("<header>");
+      out.println("<h1 style='text-align:center;''>Results</h1>");
+      out.println("<p style='text-align: center;'> <b>1st picture rating:</b> " + request.getParameter("loc") + "</p>");
+      out.println("<p style='text-align: center;'> <b>2nd picture rating:</b> " + request.getParameter("noiseLevel") + "</p>");
+      out.println("<p style='text-align: center;'> <b>3rd picture rating:</b> " + request.getParameter("crowd") + "</p>");
+      out.println("<p style='text-align: center;'> <b>4th picture rating:</b> " + request.getParameter("comfort") + "</p>");
+      out.println("</header>");
+      out.println("</html>");
+     
+     
 
      res.setContentType ("aplication/json");
      res.setHeader("Access-Control-Allow-Origin", "*");
      res.setHeader("Access-Control-Allow-Methods", "POST");
      res.setHeader("Access-Control-Allow-Headers", "*");
 
-     PrintWriter out = res.getWriter();
+     //PrintWriter out = res.getWriter();
 
      Map<String, String> data = new HashMap<String, String>();
 
