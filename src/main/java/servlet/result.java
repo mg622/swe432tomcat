@@ -35,14 +35,12 @@ public class result extends HttpServlet{
      Map<String, String[]> parameterMap = req.getParameterMap();
      for (String key: parameterMap.keySet()) {
          
-         if(key.equals("bestLocation")){ //input validation
+         if(key.equals("loc")){ //input validation
             String parameter = parameterMap.get(key)[0].toLowerCase();
-            if(parameter.equals("null")){parameter = "Please Select an option!";}
-            else if(parameter.length() > 15){parameter = "Cannot have more than 15 characters!";}
-            else if(parameter.contains("fuck") || parameter.contains("shit") || parameter.contains("hell") || parameter.contains("damn")){
-               parameter = "Cannot have bad words!";
+            if(parameter.equals("null")){parameter = "Please input a location.";}
+            else if(parameter.contains("fuck") || parameter.contains("shit") || parameter.contains("bitch") || parameter.contains("ass")){
+               parameter = "No curse words, please.";
             }
-            else if(parameter.contains("gmu")){parameter = "G M U WHAAAAT!";}//fun secret phrase trigger!
             data.put(key, parameter);
          }
          else{
