@@ -1,8 +1,7 @@
 package servlet;
 
 import com.google.gson.Gson;
-//import com.google.gson.GsonBuilder;//added for formatting
-import java.io.*;//added for lowercase
+import java.io.*;
 
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -45,7 +44,7 @@ public class result extends HttpServlet{
          }
          else{
             String parameter = parameterMap.get(key)[0];
-            if(parameter.equals("null")){parameter = "Please Select an option!";}
+            if(parameter.equals("null")){parameter = "Please Select an option.";}
             data.put(key, parameter);
          }
          //data.put(key, parameter);
