@@ -37,7 +37,7 @@ public class result extends HttpServlet{
      Map<String, String[]> parameterMap = req.getParameterMap();
      for (String key: parameterMap.keySet()) {
          
-         if(key.equals("loc")){ //input validation
+         if(key.equals("loc")){ 
             String parameter = parameterMap.get(key)[0].toLowerCase();
             if(parameter.equals("null")){parameter = "Please input a location.";}
             else if(parameter.contains("fuck") || parameter.contains("shit") || parameter.contains("bitch") || parameter.contains("ass")){
@@ -50,7 +50,6 @@ public class result extends HttpServlet{
             if(parameter.equals("null")){parameter = "Please Select an option.";}
             data.put(key, parameter);
          }
-         //data.put(key, parameter);
      }
 
 
