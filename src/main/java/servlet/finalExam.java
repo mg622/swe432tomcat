@@ -63,14 +63,7 @@ public class finalExam extends HttpServlet {
        entriesPrintWriter.close();
 
        PrintHead(out);
-       if (format.equals("one"))
-       {
-       		PrintResponseBody(out, RESOURCE_FILE);
-       }
-       else
-       {
-       		PrintResponseBody(out, RESOURCE_FILE);
-       }
+       PrintResponseBody(out, RESOURCE_FILE);
        PrintTail(out);
      }else{
        PrintHead(out);
@@ -106,7 +99,7 @@ static String censor(String text, String word)
 
 	
 
-  private void PrintResponseBody (PrintWriter out, String resourcePath){
+  private void PrintResponseBody (PrintWriter out, String resourcePath, String format){
     out.println("<body onLoad=\"setFocus()\">");
     out.println("<p>");
     out.println("Results Database");
@@ -156,6 +149,7 @@ static String censor(String text, String word)
 		  
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
+		  		out.print(format);
 		
 		  		out.println("<br>");
 		  		out.println("<br>");
