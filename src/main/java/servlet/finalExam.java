@@ -63,13 +63,13 @@ public class finalExam extends HttpServlet {
        entriesPrintWriter.close();
 
        PrintHead(out);
-       if (format.equals("0-1"))
+       if (format.equals("one"))
        {
        		PrintResponseBody(out, RESOURCE_FILE);
        }
-       if (format.equals("t-f"))
+       if (format.equals("1"))
        {
-       		//PrintResponseBody(out, RESOURCE_FILE);
+       		PrintResponseBody(out, RESOURCE_FILE);
        }
        PrintTail(out);
      }else{
