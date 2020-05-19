@@ -63,7 +63,14 @@ public class finalExam extends HttpServlet {
        entriesPrintWriter.close();
 
        PrintHead(out);
-       PrintResponseBody(out, RESOURCE_FILE);
+       if (format.equals("0-1"))
+       {
+       		PrintResponseBody(out, RESOURCE_FILE);
+       }
+       if (format.equals("t-f"))
+       {
+       		//PrintResponseBody(out, RESOURCE_FILE);
+       }
        PrintTail(out);
      }else{
        PrintHead(out);
@@ -133,29 +140,23 @@ static String censor(String text, String word)
           
           for(String value: entry){ 
           
-          out.println(value);
-          out.println("<br>");
 		//filter out curse words
-		String result=censor(value, "fuck");
-		result=censor(result, "Fuck");
-		result=censor(result, "Shit");
-		result=censor(result, "shit");
-		  result=censor(result, "ass");
-		  result=censor(result, "Ass");
-		  result=censor(result, "bitch");
-		  result=censor(result, "Bitch");
-		  result=censor(result, "hell");
-		  result=censor(result, "Hell");
+			String result=censor(value, "fuck");
+			result=censor(result, "Fuck");
+			result=censor(result, "Shit");
+			result=censor(result, "shit");
+		 	result=censor(result, "ass");
+		  	result=censor(result, "Ass");
+		  	result=censor(result, "bitch");
+		  	result=censor(result, "Bitch");
+		  	result=censor(result, "hell");
+		  	result=censor(result, "Hell");
 		  
 		  	
 		  
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
 		
-		  		//string a=result.substring(0, 1);
-		  		//string b=result.substring(result.length() - 2);
-		  		//string pred=a +" and "+b;
-		  	
 		  		out.println("<br>");
 		  		out.println("<br>");
 		  		out.println(result.substring(0, 1));
