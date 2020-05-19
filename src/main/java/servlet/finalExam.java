@@ -176,7 +176,7 @@ static String censor(String text, String word)
 		  
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
-		  		out.println("0\n0\n0\n0")
+		  		out.println("0\n0\n0\n0");
 		  	}
 		  
 		  //out.println("   <td>"+result+"</td>");
