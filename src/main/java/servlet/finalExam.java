@@ -155,9 +155,11 @@ static String censor(String text, String word)
 		  
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
-		  		char ch1 =result.charAt(0);
-		  		char ch2=result.charAt(result.length() - 1);
-		  		out.println(ch1+ch2+"  "+ch1+" and "+ch2);
+		  		//char ch1=result.charAt(0);
+		  		//char ch2=result.charAt(result.length() - 1);
+		  	
+		  		out.println(result.substring(0, 1));
+		  		out.println("<br>");
 		  		out.println(result);
 		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
 		  		out.println("<br>0 1 &nbsp;&nbsp; 0<br>");
@@ -272,7 +274,7 @@ static String censor(String text, String word)
 		out.println("<center>");
 		out.println(" <table>");
      		out.println("  <tr>");
-     		out.println("   <td>1st Variable:</td>");
+     		out.println("   <td>Predicate (Ex: A and B, A && B, etc.):</td>");
      		out.println("   <td><input type=\"text\" name=\""+Data.P1.name()+"\" value=\""+part1+"\" size=30 required></td>");
      		out.println("  </tr>");
      		out.println("  <tr>");
