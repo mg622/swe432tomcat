@@ -74,7 +74,7 @@ public class finalExam extends HttpServlet {
        PrintTail(out);
      }else{
        PrintHead(out);
-       PrintBody(out, part1 error);
+       PrintBody(out, part1, error);
        PrintTail(out);
      }
 		
