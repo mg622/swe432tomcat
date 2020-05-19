@@ -159,9 +159,9 @@ static String censor(String text, String word)
 		  		//char ch2=result.charAt(result.length() - 1);
 		  	
 		  		out.println(result.substring(0, 1));
-		  		out.println(result.substring(result.length() - 1));
+		  		out.println(result.substring(result.length() - 2));
 		  		out.println("<br>");
-		  		out.println(result);
+		  		//out.println(result);
 		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
 		  		out.println("<br>0 1 &nbsp;&nbsp; 0<br>");
 		  		out.println("<br>1 0 &nbsp;&nbsp; 0<br>");
