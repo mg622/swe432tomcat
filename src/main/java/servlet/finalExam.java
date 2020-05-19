@@ -133,7 +133,7 @@ static String censor(String text, String word)
   private void PrintResponseBody (PrintWriter out, String resourcePath){
     out.println("<body onLoad=\"setFocus()\">");
     out.println("<p>");
-    out.println("Database");
+    out.println("Results");
     out.println("</p>");
     out.println("");
 	  
@@ -176,8 +176,31 @@ static String censor(String text, String word)
 		  
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
-		  		out.println("0\n0\n0\n0");
+		  		out.println("And:");
+		  		out.println("0  0       0");
+		  		out.println("0  1       0");
+		  		out.println("1  0       0");
+		  		out.println("1  1       1");
 		  	}
+		  	
+		  	if (result.contains("xor") || result.contains("Xor") || result.contains("XOR") || result.contains("|")) 
+		  	{
+		  		out.println("Or:");
+		  		out.println("0  0       0");
+		  		out.println("0  1       1");
+		  		out.println("1  0       1");
+		  		out.println("1  1       1");
+		  	}
+		  	
+		  	else if (result.contains("or") || result.contains("Or") || result.contains("OR") || result.contains("|")) 
+		  	{
+		  		out.println("Or:");
+		  		out.println("0  0       0");
+		  		out.println("0  1       1");
+		  		out.println("1  0       1");
+		  		out.println("1  1       0");
+		  	}
+		  	
 		  
 		  //out.println("   <td>"+result+"</td>");
           }
