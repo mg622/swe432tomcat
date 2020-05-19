@@ -162,7 +162,7 @@ static String censor(String text, String word)
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
 		  		char ch1 = results.charAt(0);
-		  		char ch2=results.charAt(str.length() - 1));
+		  		char ch2=results.charAt(str.length() - 1);
 		  		System.out.println(ch1+ch2+"  "+ch1+" and "+ch2);
 		  		out.println("And:");
 		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
