@@ -67,9 +67,9 @@ public class finalExam extends HttpServlet {
        {
        		PrintResponseBody(out, RESOURCE_FILE);
        }
-       if (format.equals("two"))
+       else
        {
-       		//PrintResponseBody(out, RESOURCE_FILE);
+       		PrintResponseBody(out, RESOURCE_FILE);
        }
        PrintTail(out);
      }else{
