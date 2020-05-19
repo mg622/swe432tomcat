@@ -114,7 +114,7 @@ static String censor(String text, String word)
 } 
 
 
-void printTruthTable(integer N, integer index, integer array truthVals) {
+/*void printTruthTable(integer N, integer index, integer array truthVals) {
    if (index == N) {
       for (i=0; i<N; i++)
          print(truthVals[i] + " ");
@@ -126,7 +126,7 @@ void printTruthTable(integer N, integer index, integer array truthVals) {
          printTruthTable(N, index + 1, truthVals);
       }
    }
-}
+}*/
 
 	
 
