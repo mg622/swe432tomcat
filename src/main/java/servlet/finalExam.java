@@ -177,14 +177,10 @@ static String censor(String text, String word)
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
 		  		out.println("And:");
-		  		out.println("<br>");
-		  		out.println("<br>0 0 &nbsp;0<br>");
-		  		out.println("<br>");
-		  		out.println("0  1       0");
-		  		out.println("  <br>");
-		  		out.println("1  0       0");
-		  		out.println("  <br>");
-		  		out.println("1  1       1");
+		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
+		  		out.println("<br>0 1 &nbsp;&nbsp; 0<br>");
+		  		out.println("<br>1 0 &nbsp;&nbsp; 0<br>");
+		  		out.println("<br>1 1 &nbsp;&nbsp; 1<br>");
 		  	}
 		  	
 		  	if (result.contains("xor") || result.contains("Xor") || result.contains("XOR") || result.contains("|")) 
