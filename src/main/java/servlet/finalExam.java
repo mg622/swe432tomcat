@@ -174,7 +174,12 @@ static String censor(String text, String word)
 		  result=censor(result, "hell");
 		  result=censor(result, "Hell");
 		  
-		  out.println("   <td>"+result+"</td>");
+		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
+		  	{
+		  		out.println("0\n0\n0\n0")
+		  	}
+		  
+		  //out.println("   <td>"+result+"</td>");
           }
           out.println("  </tr>");
         }
@@ -260,19 +265,19 @@ static String censor(String text, String word)
 		out.println("<center>");
 		out.println(" <table>");
      		out.println("  <tr>");
-     		out.println("   <td>1st Part of Predicate:</td>");
+     		out.println("   <td>1st Variable:</td>");
      		out.println("   <td><input type=\"text\" name=\""+Data.P1.name()+"\" value=\""+part1+"\" size=30 required></td>");
      		out.println("  </tr>");
      		out.println("  <tr>");
      		
      		out.println("  <tr>");
-     		out.println("   <td>Operator:</td>");
+     		out.println("   <td>Operator (and, or, xor):</td>");
      		out.println("   <td><input type=\"text\" name=\""+Data.OP.name()+"\" value=\""+op+"\" size=30 required></td>");
      		out.println("  </tr>");
      		out.println("  <tr>");
      		
      		out.println("  <tr>");
-     		out.println("   <td>2nd Part of Predicate:</td>");
+     		out.println("   <td>2nd Variable:</td>");
      		out.println("   <td><input type=\"text\" name=\""+Data.P2.name()+"\" value=\""+part2+"\" size=30 required></td>");
      		out.println("  </tr>");
      		out.println("  <tr>");
@@ -325,6 +330,7 @@ static String censor(String text, String word)
 		out.println("  <label for=\"five\">5</label>");
 		out.println("<p></p>");*/
 		
+		out.println("<center>");
 		out.println("<input type=\"submit\" onclick=\"doPost()\" value=\"Submit\">");
 
      		out.println("");
