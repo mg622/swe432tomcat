@@ -42,17 +42,17 @@ public class finalExam extends HttpServlet {
      
      String error="";
      if(part1==null){
-       error= "<li>Predicate is required</li>";
+       error= "<li>Variable is required</li>";
        part1="";
      }
      
      if(part2==null){
-       error= "<li>Predicate is required</li>";
+       error= "<li>Operator is required</li>";
        part2="";
      }
      
      if(op==null){
-       error= "<li>Predicate is required</li>";
+       error= "<li>Variable is required</li>";
        op="";
      }
 
@@ -113,21 +113,6 @@ static String censor(String text, String word)
     return result; 
 } 
 
-
-/*void printTruthTable(integer N, integer index, integer array truthVals) {
-   if (index == N) {
-      for (i=0; i<N; i++)
-         print(truthVals[i] + " ");
-      print(newline);
-   } 
-   else {
-      for (i=0; i<2; i++) {
-         truthVals[index] = i;
-         printTruthTable(N, index + 1, truthVals);
-      }
-   }
-}*/
-
 	
 
   private void PrintResponseBody (PrintWriter out, String resourcePath){
@@ -143,7 +128,7 @@ static String censor(String text, String word)
 	try {
 		out.println("  <table>");
         	out.println("  <tr>");
-        	out.println("   <th>Predicate</th>");
+        	//out.println("   <th></th>");
         	//out.println("   <th>Noise</th>");
 			//out.println("   <th>Crowd</th>");
 			//out.println("   <th>Comfort</th>");
@@ -176,6 +161,9 @@ static String censor(String text, String word)
 		  
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
+		  		char ch1 = results.charAt(0);
+		  		char ch2=results.charAt(str.length() - 1));
+		  		System.out.println(ch1+ch2+"  "+ch1+" and "+ch2);
 		  		out.println("And:");
 		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
 		  		out.println("<br>0 1 &nbsp;&nbsp; 0<br>");
@@ -186,20 +174,23 @@ static String censor(String text, String word)
 		  	if (result.contains("xor") || result.contains("Xor") || result.contains("XOR") || result.contains("|")) 
 		  	{
 		  		out.println("Or:");
-		  		out.println("0  0       0");
-		  		out.println("0  1       1");
-		  		out.println("1  0       1");
-		  		out.println("1  1       1");
+		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
+		  		out.println("<br>0 1 &nbsp;&nbsp; 1<br>");
+		  		out.println("<br>1 0 &nbsp;&nbsp; 1<br>");
+		  		out.println("<br>1 1 &nbsp;&nbsp; 1<br>");
+
 		  	}
 		  	
 		  	else if (result.contains("or") || result.contains("Or") || result.contains("OR") || result.contains("|")) 
 		  	{
 		  		out.println("Or:");
-		  		out.println("0  0       0");
-		  		out.println("0  1       1");
-		  		out.println("1  0       1");
-		  		out.println("1  1       0");
+		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
+		  		out.println("<br>0 1 &nbsp;&nbsp; 1<br>");
+		  		out.println("<br>1 0 &nbsp;&nbsp; 1<br>");
+		  		out.println("<br>1 1 &nbsp;&nbsp; 0<br>");
 		  	}
+		  	
+		  
 		  	
 		  
 		  //out.println("   <td>"+result+"</td>");
