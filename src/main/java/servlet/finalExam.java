@@ -52,20 +52,6 @@ public class finalExam extends HttpServlet {
     	 error+= "<li>Format is required.<li>";
     	 format="";
      }
-     
-
-     /*if(noise==null){
-    	 error+= "<li>Rating for noise level is required.<li>";
-    	 noise="";
-     }
-     if(crowd == null){
-    	 error+= "<li>Rating for crowdedness is required.<li>";
-    	 crowd="";
-     }
-	if(comfort==null){
-    	 error+= "<li>Rating for comfort is required.<li>";
-    	 comfort="";
-     }*/
 		
 
      response.setContentType("text/html");
@@ -146,6 +132,9 @@ static String censor(String text, String word)
           out.println("  <tr>");
           
           for(String value: entry){ 
+          
+          out.println(value);
+          out.println("<br>");
 		//filter out curse words
 		String result=censor(value, "fuck");
 		result=censor(result, "Fuck");
