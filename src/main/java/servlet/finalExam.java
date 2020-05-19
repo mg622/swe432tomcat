@@ -34,6 +34,7 @@ public class finalExam extends HttpServlet {
 
 		String part1=request.getParameter(Data.P1.name());
 		String format=request.getParameter(Data.FORM.name());
+		out.println(format);
 		
 		//String op=request.getParameter(Data.OP.name());
 		//String part2=request.getParameter(Data.P2.name());
@@ -99,7 +100,7 @@ static String censor(String text, String word)
 
 	
 
-  private void PrintResponseBody (PrintWriter out, String resourcePath, String format){
+  private void PrintResponseBody (PrintWriter out, String resourcePath){
     out.println("<body onLoad=\"setFocus()\">");
     out.println("<p>");
     out.println("Results Database");
@@ -149,7 +150,6 @@ static String censor(String text, String word)
 		  
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
-		  		out.print(format);
 		
 		  		out.println("<br>");
 		  		out.println("<br>");
