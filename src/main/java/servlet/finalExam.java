@@ -178,8 +178,11 @@ static String censor(String text, String word)
 		  	{
 		  		out.println("And:");
 		  		out.println("0  0       0");
+		  		out.println("<br>");
 		  		out.println("0  1       0");
+		  		out.println("  <br>");
 		  		out.println("1  0       0");
+		  		out.println("  <br>");
 		  		out.println("1  1       1");
 		  	}
 		  	
