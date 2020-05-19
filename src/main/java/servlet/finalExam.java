@@ -33,7 +33,7 @@ public class finalExam extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String part1=request.getParameter(Data.P1.name());
-		String format = request.getParameter(Data.FORM.name());
+		String format=request.getParameter(Data.FORM.name());
 		
 		//String op=request.getParameter(Data.OP.name());
 		//String part2=request.getParameter(Data.P2.name());
@@ -67,9 +67,9 @@ public class finalExam extends HttpServlet {
        {
        		PrintResponseBody(out, RESOURCE_FILE);
        }
-       if (format.equals("1"))
+       if (format.equals("two"))
        {
-       		PrintResponseBody(out, RESOURCE_FILE);
+       		//PrintResponseBody(out, RESOURCE_FILE);
        }
        PrintTail(out);
      }else{
@@ -304,10 +304,10 @@ static String censor(String text, String word)
 		out.println("<center>");
 		out.println("<b>Choose the format:</b>");
 		out.println("<br>");
-		out.println("  <input type=\"radio\" name=\""+Data.FORM.name() +"\" id=\"one\" value=\"1\">");
+		out.println("  <input type=\"radio\" name=\"one"+Data.FORM.name() +"\" id=\"one\" value=\"1\">");
 		out.println("  <label for=\"one\">1-0&nbsp;&nbsp;</label>"); 
 		
-		out.println("  <input type=\"radio\"name=\""+Data.FORM.name() +"\" id=\"two\" value=\"2\" />");
+		out.println("  <input type=\"radio\"name=\"two"+Data.FORM.name() +"\" id=\"two\" value=\"2\" />");
 		out.println("  <label for=\"two\">t-f</label>");
 		out.println("<p></p>");
 
