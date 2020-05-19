@@ -163,7 +163,7 @@ static String censor(String text, String word)
 		  	{
 		  		char ch1 = result.charAt(0);
 		  		char ch2=result.charAt(result.length() - 1);
-		  		System.out.println(ch1+ch2+"  "+ch1+" and "+ch2);
+		  		out.println(ch1+ch2+"  "+ch1+" and "+ch2);
 		  		out.println("And:");
 		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
 		  		out.println("<br>0 1 &nbsp;&nbsp; 0<br>");
