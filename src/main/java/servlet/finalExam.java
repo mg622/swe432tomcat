@@ -352,7 +352,7 @@ static String censor(String text, String word)
 	
 	
 	private void PrintBody(PrintWriter out) {
-		PrintBody(out, "", null, null, null, null);
+		PrintBody(out, "", "", "", null);
 	}
 
 	
