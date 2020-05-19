@@ -26,15 +26,15 @@ public class finalExam extends HttpServlet {
 
 	static String Style = "https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 	
-	static enum Data {P1, OP, P2};
+	static enum Data {P1};
   	static String RESOURCE_FILE = "entries.txt";
   	static final String VALUE_SEPARATOR = ";";
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String part1=request.getParameter(Data.P1.name());
-		String op=request.getParameter(Data.OP.name());
-		String part2=request.getParameter(Data.P2.name());
+		//String op=request.getParameter(Data.OP.name());
+		//String part2=request.getParameter(Data.P2.name());
 		
 		//String noise = request.getParameter(Data.NOISE.name());
 		//String crowd = request.getParameter(Data.CROWD.name());
@@ -42,19 +42,10 @@ public class finalExam extends HttpServlet {
      
      String error="";
      if(part1==null){
-       error= "<li>Variable is required</li>";
+       error= "<li>Predicate is required</li>";
        part1="";
      }
      
-     if(part2==null){
-       error= "<li>Operator is required</li>";
-       part2="";
-     }
-     
-     if(op==null){
-       error= "<li>Variable is required</li>";
-       op="";
-     }
 
      /*if(noise==null){
     	 error+= "<li>Rating for noise level is required.<li>";
@@ -75,7 +66,7 @@ public class finalExam extends HttpServlet {
 
      if (error.length() == 0){
        PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(part1+VALUE_SEPARATOR+op+VALUE_SEPARATOR+part2);
+       entriesPrintWriter.println(part1);
        entriesPrintWriter.close();
 
        PrintHead(out);
@@ -83,7 +74,7 @@ public class finalExam extends HttpServlet {
        PrintTail(out);
      }else{
        PrintHead(out);
-       PrintBody(out, part1, op, part2, error);
+       PrintBody(out, part1 error);
        PrintTail(out);
      }
 		
@@ -146,6 +137,7 @@ static String censor(String text, String word)
         while ((line = bufferedReader.readLine()) != null) {
           String []  entry= line.split(VALUE_SEPARATOR);
           out.println("  <tr>");
+          
           for(String value: entry){ 
 		//filter out curse words
 		String result=censor(value, "fuck");
@@ -158,6 +150,8 @@ static String censor(String text, String word)
 		  result=censor(result, "Bitch");
 		  result=censor(result, "hell");
 		  result=censor(result, "Hell");
+		  
+		  	
 		  
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
@@ -191,7 +185,6 @@ static String censor(String text, String word)
 		  	}
 		  	
 		  
-		  	
 		  
 		  //out.println("   <td>"+result+"</td>");
           }
@@ -247,7 +240,7 @@ static String censor(String text, String word)
 	} 
 
 	
-	private void PrintBody (PrintWriter out, String part1, String op, String part2, String error){
+	private void PrintBody (PrintWriter out, String part1, String error){
 	    
 		out.println("<body onLoad=\"setFocus()\">");
      		out.println("<p>");
@@ -256,10 +249,10 @@ static String censor(String text, String word)
 		out.println("<b>Mei Gibbons</b>");
 		out.println("</p>");		
 		out.println("<p>");
-   		out.println("<b>Additional features:</b>");
-    		out.println("<p>Store the data in XML format. </p>");
-    		out.println("<p>Store the data into a database. ");
-    		out.println("<p>Filter unacceptable words from the reviews (curse words). </p>");
+   		out.println("<b>OREs:</b>");
+    		out.println("<p>Input validation </p>");
+    		out.println("<p>Exclusive or ");
+    		out.println("<p>Multiple syntaxes in the input box for logical operators</p>");
     		out.println("<p>Add use of a session object.</p>");
 		out.println("</p>");
 		out.println("<br>");
@@ -284,7 +277,7 @@ static String censor(String text, String word)
      		out.println("  </tr>");
      		out.println("  <tr>");
      		
-     		out.println("  <tr>");
+     		/*out.println("  <tr>");
      		out.println("   <td>Operator (and, or, xor):</td>");
      		out.println("   <td><input type=\"text\" name=\""+Data.OP.name()+"\" value=\""+op+"\" size=30 required></td>");
      		out.println("  </tr>");
@@ -294,7 +287,7 @@ static String censor(String text, String word)
      		out.println("   <td>2nd Variable:</td>");
      		out.println("   <td><input type=\"text\" name=\""+Data.P2.name()+"\" value=\""+part2+"\" size=30 required></td>");
      		out.println("  </tr>");
-     		out.println("  <tr>");
+     		out.println("  <tr>");*/
 		out.println(" </table>");
 		out.println("</center>");
 		out.println("<br>");
@@ -372,7 +365,7 @@ static String censor(String text, String word)
 	
 	
 	private void PrintBody(PrintWriter out) {
-		PrintBody(out, "", "", "", null);
+		PrintBody(out, "", null);
 	}
 
 	
