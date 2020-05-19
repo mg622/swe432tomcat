@@ -160,31 +160,31 @@ static String censor(String text, String word)
 		  	
 		  		out.println(result.substring(0, 1));
 		  		out.println(result.substring(result.length() - 2));
+		  		out.println(result.substring(0, 1)+ " and " +result.substring(result.length() - 2));
 		  		out.println("<br>");
-		  		//out.println(result);
-		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
-		  		out.println("<br>0 1 &nbsp;&nbsp; 0<br>");
-		  		out.println("<br>1 0 &nbsp;&nbsp; 0<br>");
-		  		out.println("<br>1 1 &nbsp;&nbsp; 1<br>");
+		  		out.println("<br>0  &nbsp; 0 &nbsp;&nbsp;&nbsp; 0<br>");
+		  		out.println("<br>0  &nbsp; 1 &nbsp;&nbsp;&nbsp; 0<br>");
+		  		out.println("<br>1  &nbsp; 0 &nbsp;&nbsp;&nbsp; 0<br>");
+		  		out.println("<br>1  &nbsp; 1 &nbsp;&nbsp;&nbsp; 1<br>");
 		  	}
 		  	
 		  	if (result.contains("xor") || result.contains("Xor") || result.contains("XOR") || result.contains("|")) 
 		  	{
 		  		out.println("Or:");
-		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
-		  		out.println("<br>0 1 &nbsp;&nbsp; 1<br>");
-		  		out.println("<br>1 0 &nbsp;&nbsp; 1<br>");
-		  		out.println("<br>1 1 &nbsp;&nbsp; 1<br>");
+		  		out.println("<br>0 &nbsp; 0 &nbsp;&nbsp;&nbsp; 0<br>");
+		  		out.println("<br>0 &nbsp; 1 &nbsp;&nbsp;&nbsp; 1<br>");
+		  		out.println("<br>1 &nbsp; 0 &nbsp;&nbsp;&nbsp; 1<br>");
+		  		out.println("<br>1 &nbsp; 1 &nbsp;&nbsp;&nbsp; 1<br>");
 
 		  	}
 		  	
 		  	else if (result.contains("or") || result.contains("Or") || result.contains("OR") || result.contains("|")) 
 		  	{
 		  		out.println("Or:");
-		  		out.println("<br>0 0 &nbsp;&nbsp; 0<br>");
-		  		out.println("<br>0 1 &nbsp;&nbsp; 1<br>");
-		  		out.println("<br>1 0 &nbsp;&nbsp; 1<br>");
-		  		out.println("<br>1 1 &nbsp;&nbsp; 0<br>");
+		  		out.println("<br>0 &nbsp; 0 &nbsp;&nbsp;&nbsp; 0<br>");
+		  		out.println("<br>0 &nbsp; 1 &nbsp;&nbsp;&nbsp; 1<br>");
+		  		out.println("<br>1 &nbsp; 0 &nbsp;&nbsp;&nbsp; 1<br>");
+		  		out.println("<br>1 &nbsp; 1 &nbsp;&nbsp;&nbsp; 0<br>");
 		  	}
 		  	
 		  
