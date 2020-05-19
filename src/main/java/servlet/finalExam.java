@@ -155,11 +155,14 @@ static String censor(String text, String word)
 		  
 		  	if (result.contains("and") || result.contains("And") || result.contains("AND") || result.contains("&")) 
 		  	{
-		  		//char ch1=result.charAt(0);
-		  		//char ch2=result.charAt(result.length() - 1);
+		
+		  		//string a=result.substring(0, 1);
+		  		//string b=result.substring(result.length() - 2);
+		  		//string pred=a +" and "+b;
 		  	
 		  		out.println(result.substring(0, 1));
 		  		out.println(result.substring(result.length() - 2));
+		  		out.println("&nbsp;&nbsp;&nbsp;");
 		  		out.println(result.substring(0, 1)+ " and " +result.substring(result.length() - 2));
 		  		out.println("<br>");
 		  		out.println("<br>0  &nbsp; 0 &nbsp;&nbsp;&nbsp; 0<br>");
