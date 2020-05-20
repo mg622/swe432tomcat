@@ -34,7 +34,6 @@ public class finalExam extends HttpServlet {
 
 		String part1=request.getParameter(Data.P1.name());
 		String format=request.getParameter(Data.FORM.name());
-		System.out.println(format);
 		
 		//String op=request.getParameter(Data.OP.name());
 		//String part2=request.getParameter(Data.P2.name());
