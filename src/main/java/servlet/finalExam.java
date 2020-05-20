@@ -294,13 +294,13 @@ static String censor(String text, String word)
 		out.println("</center>");
 		out.println("<br>");
 		
-		out.println("<center>");
+		/*out.println("<center>");
 		out.println("<b>Choose the format:</b>");
 		out.println("<br>");
-		out.println("  <input type=\"radio\" name=\"one"+Data.FORM.name() +"\" id=\"one\" value=\"1\">");
+		out.println("  <input type=\"radio\" name=\""+Data.FORM.name() +"\" id=\"one\" value=\"1\">");
 		out.println("  <label for=\"one\">1-0&nbsp;&nbsp;</label>"); 
 		
-		out.println("  <input type=\"radio\"name=\"two"+Data.FORM.name() +"\" id=\"two\" value=\"2\" />");
+		out.println("  <input type=\"radio\"name=\""+Data.FORM.name() +"\" id=\"two\" value=\"2\" />");
 		out.println("  <label for=\"two\">t-f</label>");
 		out.println("<p></p>");
 
