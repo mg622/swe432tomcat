@@ -26,31 +26,18 @@ public class finalExam extends HttpServlet {
 
 	static String Style = "https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 	
-	static enum Data {P1, FORM};
+	static enum Data {P1};
   	static String RESOURCE_FILE = "entries.txt";
   	static final String VALUE_SEPARATOR = ";";
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String part1=request.getParameter(Data.P1.name());
-		String format=request.getParameter(Data.FORM.name());
-		
-		//String op=request.getParameter(Data.OP.name());
-		//String part2=request.getParameter(Data.P2.name());
-		
-		//String noise = request.getParameter(Data.NOISE.name());
-		//String crowd = request.getParameter(Data.CROWD.name());
-		//String comfort = request.getParameter(Data.COMFORT.name());
      
      String error="";
      if(part1==null){
        error= "<li>Predicate is required</li>";
        part1="";
-     }
-     
-     if(format==null){
-    	 error+= "<li>Format is required.<li>";
-    	 format="";
      }
 		
 
@@ -67,7 +54,7 @@ public class finalExam extends HttpServlet {
        PrintTail(out);
      }else{
        PrintHead(out);
-       PrintBody(out, part1, format, error);
+       PrintBody(out, part1, error);
        PrintTail(out);
      }
 		
@@ -112,10 +99,7 @@ static String censor(String text, String word)
 	try {
 		out.println("  <table>");
         	out.println("  <tr>");
-        	//out.println("   <th></th>");
-        	//out.println("   <th>Noise</th>");
-			//out.println("   <th>Crowd</th>");
-			//out.println("   <th>Comfort</th>");
+        	
         	out.println("  </tr>");
         	File file = new File(resourcePath);
         	if(!file.exists()){
@@ -254,7 +238,7 @@ static String censor(String text, String word)
 	} 
 
 	
-	private void PrintBody (PrintWriter out, String part1, String format, String error){
+	private void PrintBody (PrintWriter out, String part1, String error){
 	    
 		out.println("<body onLoad=\"setFocus()\">");
      		out.println("<p>");
@@ -267,7 +251,7 @@ static String censor(String text, String word)
     		out.println("<p>Input validation </p>");
     		out.println("<p>Exclusive or ");
     		out.println("<p>Multiple syntaxes in the input box for logical operators</p>");
-    		out.println("<p>Different formats to display the truth-values in the truth table</p>");
+    		
 		out.println("</p>");
 		out.println("<br>");
 		out.println("<p><b><center>Final Exam</center></b> </p>");
@@ -294,45 +278,6 @@ static String censor(String text, String word)
 		out.println("</center>");
 		out.println("<br>");
 		
-		/*out.println("<center>");
-		out.println("<b>Choose the format:</b>");
-		out.println("<br>");
-		out.println("  <input type=\"radio\" name=\""+Data.FORM.name() +"\" id=\"one\" value=\"1\">");
-		out.println("  <label for=\"one\">1-0&nbsp;&nbsp;</label>"); 
-		
-		out.println("  <input type=\"radio\"name=\""+Data.FORM.name() +"\" id=\"two\" value=\"2\" />");
-		out.println("  <label for=\"two\">t-f</label>");
-		out.println("<p></p>");
-
-		/*out.println("<br> ");
-		out.println("<b>Rating for Crowdedness:</b> (1-way too crowded, 5-hardly any people)");    
-		out.println("<br>");
-		out.println("  <input type=\"radio\" name=\""+Data.CROWD.name() +"\" id=\"one\" value=\"1\">");
-		out.println("  <label for=\"one\">1</label> ");
-		out.println("  <input type=\"radio\" name=\""+Data.CROWD.name() +"\" id=\"two\" value=\"2\" /> ");
-		out.println(" <label for=\"two\">2</label> ");
-		out.println("  <input type=\"radio\" name=\""+Data.CROWD.name() +"\" id=\"three\" value=\"3\" checked=\"true\" /> ");
-		out.println(" <label for=\"three\">3</label> ");
-		out.println("  <input type=\"radio\" name=\""+Data.CROWD.name() +"\" id=\"four\" value=\"4\" />");
-		out.println(" <label for=\"four\">4</label>");
-		out.println("  <input type=\"radio\" name=\""+Data.CROWD.name() +"\" id=\"five\" value=\"5\" />");
-		out.println(" <label for=\"five\">5</label>");
-		out.println("<p></p>");
-
-		out.println("<br>");
-		out.println("<b>Rating for Comfort of Seats:</b> (1-uncomfortable, 5-very comfortable)");
-		out.println("<br>");
-		out.println("  <input type=\"radio\" name=\""+Data.COMFORT.name() +"\" id=\"one\" value=\"1\">");
-		out.println("  <label for=\"one\">1</label>"); 
-		out.println("  <input type=\"radio\" name=\""+Data.COMFORT.name() +"\" id=\"two\" value=\"2\" />");
-		out.println("  <label for=\"two\">2</label>");
-		out.println("  <input type=\"radio\" name=\""+Data.COMFORT.name() +"\" id=\"three\" value=\"3\" checked=\"true\" />");
-		out.println("  <label for=\"three\">3</label>");
-		out.println("  <input type=\"radio\" name=\""+Data.COMFORT.name() +"\" id=\"four\" value=\"4\" />");
-		out.println("  <label for=\"four\">4</label>");
-		out.println("  <input type=\"radio\" name=\""+Data.COMFORT.name() +"\" id=\"five\" value=\"5\" />");
-		out.println("  <label for=\"five\">5</label>");
-		out.println("<p></p>");*/
 		
 		out.println("<center>");
 		out.println("<input type=\"submit\" onclick=\"doPost()\" value=\"Submit\">");
