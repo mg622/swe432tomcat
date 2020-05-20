@@ -48,6 +48,7 @@ public class finalExam extends HttpServlet {
        PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
        entriesPrintWriter.println(part1);
        entriesPrintWriter.close();
+	     
 
        PrintHead(out);
        PrintResponseBody(out, RESOURCE_FILE);
