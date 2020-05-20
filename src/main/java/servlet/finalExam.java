@@ -142,7 +142,6 @@ static String censor(String text, String word)
 		  		out.println("&nbsp;&nbsp;&nbsp;");
 		  		out.println(result.substring(0, 1)+ " and " +result.substring(result.length() - 2));
 		  		
-		  		out.println("<br>");
 		  		out.println("<br>0  &nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0<br>");
 		  		out.println("<br>0  &nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0<br>");
 		  		out.println("<br>1  &nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0<br>");
